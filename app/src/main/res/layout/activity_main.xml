@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/bagpuncherbkgrnd"
+    android:id="@+id/gameBG"
+    >
+
+
+    <TextView
+        android:id="@+id/gameTitle"
+        android:layout_width="380dp"
+        android:layout_height="44dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/titlebackgrnd"
+        android:text="@string/bag_puncher"
+        android:textAlignment="center"
+        android:textColor="#FFFF"
+        android:textSize="30sp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.012" />
+
+    <TextView
+        android:id="@+id/messageToPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/gameTitle"
+        android:layout_centerHorizontal="true"
+        android:text="@string/tear_it_up"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.069" />
+
+    <ImageButton
+        android:id="@+id/punchingBagHitMarker"
+        android:layout_width="167dp"
+        android:layout_height="511dp"
+        android:layout_centerInParent="true"
+        android:background="@null"
+        android:clickable="true"
+        android:contentDescription="@string/button_to_punch_for_points"
+        android:focusable="true"
+        android:src="@drawable/bag"
+        android:text="@string/hit_me"
+        app:layout_constraintBottom_toTopOf="@+id/scoreBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messageToPlayer"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="RedundantDescriptionCheck" />
+
+    <TextView
+        android:id="@+id/scoreBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/punchingBagHitMarker"
+        android:layout_centerHorizontal="true"
+        android:autofillHints=""
+        android:inputType="number"
+        android:text="@string/total_hits"
+        android:textColor="#FFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.835"
+        tools:ignore="TextViewEdits" />
+
+    <Button
+        android:id="@+id/upgrades"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="104dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/buttonbackgrounds"
+        android:text="@string/upgrades"
+        android:textColor="@color/white"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.905"
+        />
+
+    <Button
+        android:id="@+id/achievementsButton"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="115dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/buttonbackgrounds"
+        android:text="Achievements"
+        android:textColor="@color/white"
+        android:textStyle="italic|bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.905" />
+
+    <Button
+        android:id="@+id/store"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/buttonbackgrounds"
+        android:text="@string/store"
+        android:textColor="@color/white"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/achievementsButton"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toEndOf="@+id/upgrades"
+        app:layout_constraintTop_toBottomOf="@+id/punchingBagHitMarker"
+        app:layout_constraintVertical_bias="0.7" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
