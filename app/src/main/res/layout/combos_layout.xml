@@ -89,25 +89,6 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/textView6"
-        android:layout_width="115dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="408dp"
-        android:background="@null"
-        android:gravity="center"
-        android:inputType="number"
-        android:text="1"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentValues"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
         android:id="@+id/hitTimer"
         android:layout_width="115dp"
         android:layout_height="62dp"
@@ -115,7 +96,7 @@
         android:background="@null"
         android:gravity="center"
         android:inputType="number"
-        android:text="60"
+        android:text="5"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold|italic"
@@ -124,25 +105,25 @@
         app:layout_constraintHorizontal_bias="0.881"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentValues"
-        app:layout_constraintVertical_bias="0.002" />
+        app:layout_constraintVertical_bias="0.13" />
 
     <EditText
         android:id="@+id/autoHitVal"
         android:layout_width="115dp"
         android:layout_height="62dp"
+        android:background="@null"
         android:gravity="center"
         android:inputType="number"
-        android:background="@null"
         android:text="1"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="@+id/hitTimer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.874"
+        app:layout_constraintHorizontal_bias="0.87"
         app:layout_constraintStart_toStartOf="@+id/upgrade2"
         app:layout_constraintTop_toTopOf="@+id/currentValues"
-        app:layout_constraintVertical_bias="0.653" />
+        app:layout_constraintVertical_bias="0.62" />
 
     <EditText
         android:id="@+id/hitVal"
@@ -176,7 +157,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.078" />
+        app:layout_constraintVertical_bias="0.089" />
 
     <Button
         android:id="@+id/upgrade1"
@@ -189,10 +170,10 @@
         android:textStyle="italic|bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209" />
+        app:layout_constraintVertical_bias="0.251" />
 
     <Button
         android:id="@+id/upgrade2"
@@ -205,42 +186,26 @@
         android:textStyle="italic|bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.368" />
+        app:layout_constraintVertical_bias="0.438" />
 
     <Button
         android:id="@+id/upgrade3"
         android:layout_width="200sp"
         android:layout_height="60sp"
         android:background="@drawable/menu_buttons"
-        android:text="Hit increment -5"
+        android:text="Passive Hits +5"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="italic|bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.524" />
-
-    <Button
-        android:id="@+id/upgrade4"
-        android:layout_width="200sp"
-        android:layout_height="60sp"
-        android:background="@drawable/menu_buttons"
-        android:text="Speedbag"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="italic|bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.689" />
+        app:layout_constraintVertical_bias="0.648" />
 
     <TextView
         android:id="@+id/textView"

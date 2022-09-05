@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -22,11 +23,11 @@ public class MainActivity extends AppCompatActivity{
 
     SharedPreferences sp;
     private static int hits = 0;
-    private static int passiveHitsTimer = 60000;
+    private static int passiveHitsTimer = 30000;
     private static int punchWorth = 1;
     private static int passivePunch = 1;
     ImageButton bagButton;
-    Animation scaleUp, scaleDown, hitAnimation, punchAnimation;
+    Animation scaleUp, scaleDown, hitAnimation, punchAnimation, punchWorthDisplay;
     Button comboButton, achievementsButton, storeButton;
     private EditText hitVal, passiveVal, passiveTimer;
 
@@ -71,6 +72,11 @@ public class MainActivity extends AppCompatActivity{
         sp.edit().putInt("passiveValue", passivePunch);
         sp.edit().putInt("passiveTimer", passiveHitsTimer);
 
+        hitAnimation = AnimationUtils.loadAnimation(this, R.anim.hit_animation);
+        punchAnimation = AnimationUtils.loadAnimation(this,R.anim.punch_worth);
+
+        punchWorthDisplay = AnimationUtils.loadAnimation(this, R.anim.display_punch_worth);
+
 
 
         // passive increase to total score
@@ -82,15 +88,6 @@ public class MainActivity extends AppCompatActivity{
             public void run() {
                 hits += passivePunch;
                 runOnUiThread(() -> totalScore.setText(String.valueOf(hits)));
-                Timer timer2 = new Timer();
-                timer2.scheduleAtFixedRate(new TimerTask() {
-                    @Override
-                    public void run() {
-                        if (passiveHitsTimer != sp.getInt("passiveTimer", passiveHitsTimer)) {
-                            passiveHitsTimer = sp.getInt("passiveTimer", passiveHitsTimer);
-                        }
-                    }
-                }, 1000, 1000);
             }
         }, passiveHitsTimer, passiveHitsTimer);
 
@@ -101,6 +98,7 @@ public class MainActivity extends AppCompatActivity{
 
         scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(this, R.anim.scale_down);
+
 
         comboButton.setOnClickListener((v) -> {
             Intent intent = new Intent(this, comboWindow.class);
@@ -129,18 +127,24 @@ public class MainActivity extends AppCompatActivity{
             return true;
         });
 
-        // Animation on every click of the button
+        // Animation on every click of the bag button
         bagButton = findViewById(R.id.punchingBagHitMarker);
-        hitAnimation = AnimationUtils.loadAnimation(this, R.anim.hit_animation);
-        punchAnimation = AnimationUtils.loadAnimation(this,R.anim.punch_worth);
 
-
-        bagButton.setOnClickListener(v -> {
-            bagButton.startAnimation(hitAnimation);
-            hits = hits + punchWorth;
-            totalScore.setText(String.valueOf(hits));
-            sp.edit().putInt("totalHits", hits);
-
+        bagButton.setOnTouchListener((v,e) -> {
+            if(e.getAction() == MotionEvent.ACTION_DOWN) {
+                bagButton.startAnimation(hitAnimation);
+                hits = hits + punchWorth;
+                totalScore.setText(String.valueOf(hits));
+                sp.edit().putInt("totalHits", hits);
+                TextView displayText = findViewById(R.id.displayNum);
+                displayText.setAnimation(punchWorthDisplay);
+                displayText.setX(e.getRawX());
+                displayText.setY(e.getRawY());
+                displayText.setText("+" + punchWorth);
+                displayText.startAnimation(punchWorthDisplay);
+                return false;
+            }
+            else return false;
         });
 
     }
