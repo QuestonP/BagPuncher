@@ -31,6 +31,12 @@
             android:parentActivityName=".MainActivity"
             android:launchMode="singleTop">
         </activity>
+
+        <activity android:name=".speedbagWindow"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:parentActivityName=".MainActivity"
+            android:launchMode="singleTop">
+        </activity>
     </application>
 
 </manifest>

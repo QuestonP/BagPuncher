@@ -28,8 +28,9 @@ public class MainActivity extends AppCompatActivity{
     private static int passivePunch = 1;
     ImageButton bagButton;
     Animation scaleUp, scaleDown, hitAnimation, punchAnimation, punchWorthDisplay;
-    Button comboButton, achievementsButton, storeButton;
+    Button comboButton, achievementsButton, storeButton, speedbag;
     private EditText hitVal, passiveVal, passiveTimer;
+
 
     public static int getHits(){
         return hits;
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity{
         comboButton = findViewById(R.id.upgrades);
         achievementsButton = findViewById(R.id.achievementsButton);
         storeButton = findViewById(R.id.store);
+        speedbag = findViewById(R.id.speedbagButton);
 
         scaleUp = AnimationUtils.loadAnimation(this, R.anim.scale_up);
         scaleDown = AnimationUtils.loadAnimation(this, R.anim.scale_down);
@@ -125,6 +127,14 @@ public class MainActivity extends AppCompatActivity{
                 achievementsButton.startAnimation(scaleUp);
 
             return true;
+        });
+
+        speedbag.setOnTouchListener((v,e) -> {
+            Intent intent = new Intent(this, speedbagWindow.class);
+            startActivity(intent);
+                speedbag.startAnimation(scaleDown);
+                speedbag.startAnimation(scaleDown);
+            return false;
         });
 
         // Animation on every click of the bag button
